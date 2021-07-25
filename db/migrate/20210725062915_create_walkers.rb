@@ -1,6 +1,6 @@
-class CreateDogWalkers < ActiveRecord::Migration[6.1]
+class CreateWalkers < ActiveRecord::Migration[6.1]
   def change
-    create_table :dog_walkers do |t|
+    create_table :walkers do |t|
 
       t.timestamps
     end
