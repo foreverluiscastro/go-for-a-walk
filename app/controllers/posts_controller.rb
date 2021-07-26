@@ -16,7 +16,26 @@ class PostsController < ApplicationController
 
     # GET /job-postings
     def index
+        if session[:walker_id]
+            posts = Post.all
+            render json: posts, include: :client
+        else
+            render json: { error: [ "Not Authorized" ] }, status: :unauthorized
+        end
+    end
 
+    # GET /job-postings/:id
+    def show
+        if session[:walker_id]
+            post = Post.find(params[:id])
+            if post.valid?
+                render json: post, include: :client
+            else
+                render json: { errors: [ "Could not complete request. please try again" ] }, status: :unprocessable_entity
+            end
+        else
+            render json: { errors: [ "Not Authorized" ] }, status: :unauthorized
+        end
     end
 
     # DELETE /job-postings/:id
@@ -27,7 +46,7 @@ class PostsController < ApplicationController
                 post.delete
                 head :no_content
             else
-                render json: { error: [ "Could not complete request. Please Try again" ] }, status: :unprocessable_entity
+                render json: { error: [ "Could not complete request. Please try again" ] }, status: :unprocessable_entity
             end
         else
             render json: { error: [ "Not Authorized" ] }, status: :unauthorized
