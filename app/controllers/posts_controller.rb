@@ -19,6 +19,10 @@ class PostsController < ApplicationController
         if session[:walker_id]
             posts = Post.all
             render json: posts, include: :client
+        elsif session[:client_id]
+            client = Client.find(session[:client_id])
+            post = client.posts
+            render json: post
         else
             render json: { error: [ "Not Authorized" ] }, status: :unauthorized
         end
@@ -41,6 +45,14 @@ class PostsController < ApplicationController
     # DELETE /job-postings/:id
     def destroy
         if session[:walker_id]
+            post = Post.find_by(id: params[:id])
+            if post
+                post.delete
+                head :no_content
+            else
+                render json: { error: [ "Could not complete request. Please try again" ] }, status: :unprocessable_entity
+            end
+        elsif session[:client_id]
             post = Post.find_by(id: params[:id])
             if post
                 post.delete

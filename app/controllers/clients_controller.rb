@@ -13,8 +13,11 @@ class ClientsController < ApplicationController
     # GET /me
     def show
         client = Client.find_by(id: session[:client_id])
+        walker = Walker.find_by(id: session[:walker_id])
         if client
             render json: user, status: :created
+        elsif walker
+            render json: walker, status: :created
         else
             render json: { error: "Not Authorized" }, status: :unauthorized
         end
