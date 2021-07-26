@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_25_143707) do
+ActiveRecord::Schema.define(version: 2021_07_25_152135) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,14 @@ ActiveRecord::Schema.define(version: 2021_07_25_143707) do
     t.index ["client_id"], name: "index_dogs_on_client_id"
   end
 
+  create_table "posts", force: :cascade do |t|
+    t.bigint "client_id", null: false
+    t.datetime "appointment_date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["client_id"], name: "index_posts_on_client_id"
+  end
+
   create_table "walkers", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
@@ -65,4 +73,5 @@ ActiveRecord::Schema.define(version: 2021_07_25_143707) do
   add_foreign_key "appointments", "clients"
   add_foreign_key "appointments", "walkers"
   add_foreign_key "dogs", "clients"
+  add_foreign_key "posts", "clients"
 end
