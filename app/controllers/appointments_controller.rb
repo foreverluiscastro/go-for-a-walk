@@ -16,9 +16,9 @@ class AppointmentsController < ApplicationController
 
     # POST /appointments
     def create
-        if session[:client_id]
-            client = Client.find(session[:client_id])
-            appointment = client.appointments.create(appointment_params)
+        if session[:walker_id]
+            walker = Walker.find(session[:walker_id])
+            appointment = walker.appointments.create(appointment_params)
             if appointment.valid?
                 render json: appointment, include: :walker, status: :created
             else
