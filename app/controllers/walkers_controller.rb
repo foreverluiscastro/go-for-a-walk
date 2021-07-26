@@ -1,5 +1,5 @@
 class WalkersController < ApplicationController
-    # POST /careers
+    # POST /signup-to-walk
     def create
         walker = Walker.create(walker_params)
         if walker.valid?

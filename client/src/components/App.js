@@ -1,9 +1,9 @@
 import '../App.css';
 import React, { useEffect, useState } from "react";
 import { Switch, Route } from "react-router-dom";
-import NavBar from "./NavBar";
-import Login from "../pages/Login";
+import Login from '../pages/Login';
 import Home from '../pages/Home';
+import NavBar from './NavBar';
 
 
 
@@ -26,22 +26,7 @@ function App() {
       <NavBar user={user} setUser={setUser} />
       <main>
         <Switch>
-          {/* <Route exact path="/new">
-            <NewComic user={user} />
-          </Route> */}
           <Route exact path="/" component={Home}/>
-          {/* <Route exact path="/comics">
-            <ComicList />
-          </Route>
-          <Route exact path="/marvelcomics">
-            <MarvelComicsList/>
-          </Route>
-          <Route exact path="/allcomics">
-            <AllComicsList />
-          </Route>
-          <Route path="/allcomics/:id" component={PublicComicPage}/>
-          <Route path="/comics/:id/edit" component={EditComic} />
-          <Route path="/comics/:id" component={ComicPage}/> */}
         </Switch>
       </main>
     </>

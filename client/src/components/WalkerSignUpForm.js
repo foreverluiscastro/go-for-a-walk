@@ -14,7 +14,7 @@ function WalkerSignUpForm({ onLogin }) {
     e.preventDefault();
     setErrors([]);
     setIsLoading(true);
-    fetch("/signup", {
+    fetch("/signup-to-walk", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
