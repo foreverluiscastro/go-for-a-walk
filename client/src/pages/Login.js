@@ -2,10 +2,12 @@ import { useState } from "react";
 import styled from "styled-components";
 import LoginForm from "../components/LoginForm";
 import SignUpForm from "../components/SignUpForm";
+import WalkerSignUpForm from "../components/WalkerSignUpForm";
 import { Button } from "../styles";
 
 function Login({ onLogin }) {
   const [showLogin, setShowLogin] = useState(true);
+  const [showWalkerSignUp, setShowWalkerSignUp] = useState(true);
 
   return (
     <Wrapper>
@@ -32,6 +34,20 @@ function Login({ onLogin }) {
             </Button>
           </p>
         </>
+      )}
+      {showWalkerSignUp ? (
+          <>
+            <p>
+                Want to become a Walker? &nbsp;
+                <Button color="secondary" onClick={() => setShowWalkerSignUp(false), () => setShowLogin(false)}>
+                Join Our Team
+                </Button>
+            </p>
+          </>
+      ) : (
+          <>
+            <WalkerSignUpForm onLogin={onLogin}/>
+          </>
       )}
     </Wrapper>
   );
