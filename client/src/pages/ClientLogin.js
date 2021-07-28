@@ -5,7 +5,7 @@ import SignUpForm from "../components/SignUpForm";
 import WalkerSignUpForm from "../components/WalkerSignUpForm";
 import { Button } from "../styles";
 
-function Login({ onLogin }) {
+function ClientLogin({ onLogin }) {
   const [showLogin, setShowLogin] = useState(true);
   const [showWalkerSignUp, setShowWalkerSignUp] = useState(true);
 
@@ -73,4 +73,4 @@ const Divider = styled.hr`
   margin: 16px 0;
 `;
 
-export default Login;
+export default ClientLogin;

@@ -1,26 +1,34 @@
-import React from 'react';
+import React from 'react'
 import styled from 'styled-components';
+import { BoxButton } from '../styles';
+import { Link } from 'react-router-dom';
 
 function Home() {
     return (
         <Wrapper>
-            <h1>Go For A Walk</h1>
-            <p></p>
-            
+            <Logo>Go For A Walk</Logo>
+            <BoxButton >
+                Need a walk?
+            </BoxButton>
+            <BoxButton>
+                Feel like walking?
+            </BoxButton>
         </Wrapper>
     )
-};
+}
+
+const Logo = styled.h1`
+  font-family: "Permanent Marker", cursive;
+  font-size: 4rem;
+  color: #00e0d7;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  margin: 8px 0 16px;
+`;
 
 const Wrapper = styled.section`
   max-width: 500px;
-  font-family: "Permanent Marker";
-  text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
-  font-size: 30px;
-  color: deeppink;
   margin: 40px auto;
   padding: 16px;
-  gap: 24px;
-  text-align: center;
 `;
 
 export default Home;

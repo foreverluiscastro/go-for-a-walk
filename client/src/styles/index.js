@@ -1,4 +1,4 @@
-import Box from "./Box";
+import BoxButton from "./BoxButton";
 import Button from "./Button";
 import FormField from "./FormField";
 import Input from "./Input";
@@ -6,4 +6,4 @@ import Label from "./Label";
 import Textarea from "./Textarea";
 import Error from "./Error";
 
-export { Box, Button, Error, FormField, Input, Label, Textarea };
+export { BoxButton, Button, Error, FormField, Input, Label, Textarea };

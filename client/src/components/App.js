@@ -1,36 +1,16 @@
 import '../App.css';
-import React, { useEffect, useState } from "react";
-import { Switch, Route } from "react-router-dom";
-import Login from '../pages/Login';
+import React from "react";
+import { Router, Route } from "react-router-dom";
 import Home from '../pages/Home';
-import NavBar from './NavBar';
+import ClientApp from './ClientApp';
+import WalkerApp from './WalkerApp';
 
-
-
-function App() {
-  const [user, setUser] = useState(null);
-
-  useEffect(() => {
-    // auto-login
-    fetch("/me").then((r) => {
-      if (r.ok) {
-        r.json().then((user) => setUser(user));
-      }
-    });
-  }, []);
-
-  if (!user) return <Login onLogin={setUser} />;
-
-  return (
-    <>
-      <NavBar user={user} setUser={setUser} />
-      <main>
-        <Switch>
-          <Route exact path="/" component={Home}/>
-        </Switch>
-      </main>
-    </>
-  );
+const App = () => {
+  <Router>
+      <Route exact path="/" component={Home} />
+      <Route path="/owner-app" component={ClientApp} />
+      <Route path="/walker-app" component={WalkerApp} />
+  </Router>
 }
 
 export default App;
