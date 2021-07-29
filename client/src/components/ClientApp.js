@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import ClientNavBar from './ClientNavBar';
 import ClientLogin from '../pages/ClientLogin';
 import ClientHome from '../pages/ClientHome';
+import NewPost from '../pages/NewPost';
 
 
 function ClientApp() {
@@ -24,7 +25,12 @@ function ClientApp() {
         <ClientNavBar user={user} setUser={setUser}/>
         <main>
             <Switch>
-                <Route exact path="/client-home" component={ClientHome}/>
+                <Route exact path="/client-app">
+                    <ClientHome user={user}/>
+                </Route>
+                <Route path="/client-app/new-post">
+                    <NewPost user={user} />
+                </Route>
             </Switch>
         </main>
         </>
