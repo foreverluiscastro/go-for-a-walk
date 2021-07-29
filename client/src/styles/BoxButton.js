@@ -1,13 +1,5 @@
 import styled from "styled-components";
 
-// const BoxButton = styled.div`
-//   border-radius: 6px;
-//   box-shadow: 0 0.5em 10em -0.125em rgb(10 10 10 / 25%),
-//     0 0 0 1px rgb(10 10 10 / 6%);
-//   padding: 16px;
-//   background: #eee;
-// `;
-
 const COLORS = {
   primary: {
     "--main": "indigo",
@@ -32,10 +24,10 @@ function BoxButton({ variant = "fill", color = "primary", ...props }) {
 
 const ButtonBase = styled.button`
   cursor: pointer;
-  font-size: 4rem;
+  font-size: 25px;
   border: 1px solid transparent;
   border-radius: 6px;
-  padding: 15%;
+  padding: 8px 16px;
   text-decoration: none;
 `;
 

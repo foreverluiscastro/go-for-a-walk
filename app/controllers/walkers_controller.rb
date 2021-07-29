@@ -10,7 +10,7 @@ class WalkersController < ApplicationController
         end
     end
 
-    # GET /my-profile
+    # GET /walker
     def show
         walker = Walker.find_by(id: session[:walker_id])
         if walker
