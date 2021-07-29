@@ -10,7 +10,7 @@ class ClientsController < ApplicationController
         end
     end
 
-    # GET /me
+    # GET /client
     def show
         client = Client.find_by(id: session[:client_id])
         if client

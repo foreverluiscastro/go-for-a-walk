@@ -7,7 +7,6 @@ function Home() {
     return (
         <Wrapper>
             <Logo>Go For A Walk.</Logo>
-            <p>This</p>
             <Box>
                 <BoxButton as={Link} to="/client-app">Need a walk?</BoxButton>
                 <BoxButton as={Link} to="/walker-app">Feel like walking?</BoxButton>
