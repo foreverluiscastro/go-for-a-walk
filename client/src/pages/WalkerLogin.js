@@ -4,7 +4,7 @@ import LoginForm from "../components/ClientLoginForm";
 import SignUpForm from "../components/ClientSignUpForm";
 import { Button } from "../styles";
 
-function ClientLogin({ onLogin }) {
+function WalkerLogin({ onLogin }) {
   const [showLogin, setShowLogin] = useState(true);
 
   return (
@@ -57,4 +57,4 @@ const Divider = styled.hr`
   margin: 16px 0;
 `;
 
-export default ClientLogin;
+export default WalkerLogin;

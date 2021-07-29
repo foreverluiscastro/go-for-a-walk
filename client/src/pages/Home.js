@@ -7,7 +7,7 @@ function Home() {
     return (
         <Wrapper>
             <Logo>Go For A Walk</Logo>
-            <BoxButton >
+            <BoxButton as={Link} to="/client-app" >
                 Need a walk?
             </BoxButton>
             <BoxButton>

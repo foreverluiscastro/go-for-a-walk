@@ -15,6 +15,19 @@ class SessionsController < ApplicationController
         end
     end
 
+    # GET /session
+    def show
+        if session[:client_id]
+            client = Client.find(session[:client_id])
+            render json: client
+        elsif session[:walker_id]
+            walker = Walker.find(session[:walker_id])
+            render json: walker
+        else
+            render json: { error: [ "Not Authorized" ] }, status: :unauthorized
+        end
+    end
+
     # DELETE /logout
     def destroy
         if session[:walker_id]

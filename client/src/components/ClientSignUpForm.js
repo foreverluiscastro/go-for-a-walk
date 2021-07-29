@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Error, Input, FormField, Label, Textarea } from "../styles";
 
-function SignUpForm({ onLogin }) {
+function ClientSignUpForm({ onLogin }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
@@ -98,4 +98,4 @@ function SignUpForm({ onLogin }) {
   );
 }
 
-export default SignUpForm;
+export default ClientSignUpForm;
