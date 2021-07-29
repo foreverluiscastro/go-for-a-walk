@@ -1,13 +1,17 @@
 import React from 'react';
+import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { Button } from '../styles'
 
 function ClientNavBar({ user, setUser }) {
+    const history = useHistory();
+
     function handleLogoutClick() {
         fetch("/logout", { method: "DELETE" }).then((r) => {
             if (r.ok) {
                 setUser(null);
+                history.push("/");
             }
         });
     }
@@ -15,9 +19,12 @@ function ClientNavBar({ user, setUser }) {
     return (
         <Wrapper>
             <Logo>
-                <Link to="/">Go For A Walk</Link>
+                <Link to="/client-app">Go For A Walk</Link>
             </Logo>
             <Nav>
+                <Button as={Link} to="/client-app/my-profile">
+                    My Profile
+                </Button>
                 <Button variant="outline" onClick={handleLogoutClick}>
                     Logout
                 </Button>

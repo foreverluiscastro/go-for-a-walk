@@ -4,6 +4,7 @@ import ClientNavBar from './ClientNavBar';
 import ClientLogin from '../pages/ClientLogin';
 import ClientHome from '../pages/ClientHome';
 import NewPost from '../pages/NewPost';
+import ClientProfile from '../pages/ClientProfile';
 
 
 function ClientApp() {
@@ -30,6 +31,9 @@ function ClientApp() {
                 </Route>
                 <Route path="/client-app/new-post">
                     <NewPost user={user} />
+                </Route>
+                <Route path="/client-app/my-profile">
+                    <ClientProfile user={user} />
                 </Route>
             </Switch>
         </main>

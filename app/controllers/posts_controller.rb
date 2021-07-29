@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-    # POST /job-postings
+    # POST /posts
     def create
         if session[:client_id]
             client = Client.find(session[:client_id])
@@ -14,7 +14,7 @@ class PostsController < ApplicationController
         end
     end
 
-    # GET /job-postings
+    # GET /posts
     def index
         if session[:walker_id]
             posts = Post.all
