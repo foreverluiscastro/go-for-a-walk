@@ -22,6 +22,9 @@ function ClientNavBar({ user, setUser }) {
                 <Link to="/client-app">Go For A Walk</Link>
             </Logo>
             <Nav>
+                <Button as={Link} to="/client-app/my-dogs">
+                    My Dogs
+                </Button>
                 <Button as={Link} to="/client-app/my-profile">
                     My Profile
                 </Button>

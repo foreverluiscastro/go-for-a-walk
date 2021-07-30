@@ -5,12 +5,12 @@ import PostLink from '../components/PostLink';
 import { Link } from 'react-router-dom';
 
 function ClientHome({ user }) {
-    const [posts, setPosts] = useState([]);
+    const [post, setPost] = useState([]);
 
     useEffect(() => {
-        fetch("/client/posts")
+        fetch("/posts")
         .then((r) => r.json())
-        .then(setPosts);
+        .then(setPost);
     }, []);
 
     return (
@@ -18,8 +18,8 @@ function ClientHome({ user }) {
             <Box>
                 <h1>Hello, {user.username}.</h1>
                 {console.log(user)}
-                {posts.length > 0 ? (
-                    posts.map((post) => (
+                {!!post ? (
+                    post.map((post) => (
                         <PostLink key={post.id} post={post}/>
                     ))
                 ) : (

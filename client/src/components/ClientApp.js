@@ -5,6 +5,7 @@ import ClientLogin from '../pages/ClientLogin';
 import ClientHome from '../pages/ClientHome';
 import NewPost from '../pages/NewPost';
 import ClientProfile from '../pages/ClientProfile';
+import ClientDogs from '../pages/ClientDogs';
 
 
 function ClientApp() {
@@ -28,6 +29,9 @@ function ClientApp() {
             <Switch>
                 <Route exact path="/client-app">
                     <ClientHome user={user}/>
+                </Route>
+                <Route exact path="/client-app/my-dogs">
+                    <ClientDogs user={user}/>
                 </Route>
                 <Route path="/client-app/new-post">
                     <NewPost user={user} />

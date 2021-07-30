@@ -4,5 +4,7 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
   get "/session", to: "sessions#show"
   post "/signup", to: "clients#create"
-  get "/client", to: "clients#show"
+  get "/my-profile", to: "clients#show"
+  get "/my-dogs", to: "dogs#index"
+  get "/posts", to: "posts#index"
 end
