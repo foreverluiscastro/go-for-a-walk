@@ -6,6 +6,8 @@ import { Button, Error, FormField, Input, Label, Textarea } from '../styles';
 function NewPost() {
     const [numberOfDogs, setNumberOfDogs] = useState("How many dogs will attend this trip?");
     const [time, setTime] = useState("How long should they be active?")
+    const [notes, setNotes] = useState("Would you like your walker to know anything about your pet prior to meeting up?")
+
     const [errors, setErrors] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const history = useHistory();
@@ -57,12 +59,28 @@ function NewPost() {
                         onClick={() => setTime("")}
                         />
                     </FormField>
+                    <FormField>
+                        <Label htmlFor="notes">Any Sidenotes or concerns?</Label>
+                        <Input
+                        type="text"
+                        id="notes"
+                        value={notes}
+                        onChange={(e) => setNotes(e.target.value)}
+                        onClick={() => setNotes("")}
+                        />
+                    </FormField>
+                    <FormField>
+                        <Button color="primary" type="submit">
+                            {isLoading ? "Loading..." : "Submit Post"}
+                            </Button>
+                            </FormField>
+                            <FormField>
+                                {errors.map((err) => (
+                                <Error key={err}>{err}</Error>
+                                ))}
+                    </FormField>
                 </form>
             </WrapperChild>
-            <WrapperChild>
-                <h1>{numberOfDogs} Dogs for {time} minutes</h1>
-            </WrapperChild>
-
         </Wrapper>
     )
 }

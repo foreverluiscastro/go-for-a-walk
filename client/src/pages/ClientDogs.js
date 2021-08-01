@@ -22,7 +22,7 @@ function ClientDogs({ user }) {
                     ))
                 ) : (
                     <>
-                    <h2>You have not added any dogs yet! Adding your dogs allows your walker the opportunity to get to know your pet.</h2>
+                    <h2>You have not added a dog yet! Adding your dog allows your walker the opportunity to get to know your pet.</h2>
                     <Button as={Link} to="/Client-app/new-dog">
                         Add Your Dog!
                     </Button>

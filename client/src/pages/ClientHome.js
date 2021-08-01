@@ -24,7 +24,7 @@ function ClientHome({ user }) {
                     ))
                 ) : (
                     <>
-                    <h2>You have no posts yet.</h2>
+                    <h1>You have no posts yet.</h1>
                     <Button as={Link} to="/client-app/new-post">
                         Need a Walker?
                     </Button>

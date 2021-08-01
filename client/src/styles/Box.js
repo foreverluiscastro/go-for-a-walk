@@ -7,7 +7,6 @@ const Box = styled.div`
   padding: 16px;
   background: #eee;
   gap: 4px;
-  display: flex;
   position: absolute;
 `;
 
