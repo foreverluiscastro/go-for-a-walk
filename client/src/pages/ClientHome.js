@@ -19,9 +19,12 @@ function ClientHome({ user }) {
                 <h1>Hello, {user.username}.</h1>
                 {console.log(user)}
                 {post.length > 0 ? (
-                    post.map((post) => (
+                    <>
+                    <h1>You have {post.length} post pending walker.</h1>
+                    {post.map((post) => (
                         <PostLink key={post.id} post={post}/>
-                    ))
+                    ))}
+                    </>
                 ) : (
                     <>
                     <h1>You have no posts yet.</h1>
