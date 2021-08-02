@@ -18,7 +18,9 @@ ActiveRecord::Schema.define(version: 2021_07_25_152135) do
   create_table "appointments", force: :cascade do |t|
     t.bigint "client_id", null: false
     t.bigint "walker_id", null: false
-    t.datetime "appointment_date"
+    t.date "date"
+    t.time "time"
+    t.integer "number_of_dogs"
     t.string "notes"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -40,6 +42,7 @@ ActiveRecord::Schema.define(version: 2021_07_25_152135) do
   end
 
   create_table "dogs", force: :cascade do |t|
+    t.string "img_url"
     t.string "name"
     t.string "breed"
     t.string "personality"
@@ -51,7 +54,10 @@ ActiveRecord::Schema.define(version: 2021_07_25_152135) do
 
   create_table "posts", force: :cascade do |t|
     t.bigint "client_id", null: false
-    t.datetime "appointment_date"
+    t.date "date"
+    t.time "time"
+    t.integer "number_of_dogs"
+    t.string "notes"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["client_id"], name: "index_posts_on_client_id"

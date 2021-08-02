@@ -7,10 +7,10 @@ class PostsController < ApplicationController
             if post.valid?
                 render json: post, include: :client, status: :created
             else
-                render json: { error: [ "Invalid input. Check the information and try again." ] }, status: :unprocessable_entity
+                render json: { errors: [ "Invalid input. Check the information and try again." ] }, status: :unprocessable_entity
             end
         else
-            render json: { error: [ "Not Authorized" ] }, status: :unauthorized
+            render json: { errors: [ "Not Authorized" ] }, status: :unauthorized
         end
     end
 
@@ -68,6 +68,6 @@ class PostsController < ApplicationController
     private
 
     def post_params
-        params.permit(:client_id, :appointment_date)
+        params.permit(:client_id, :appointment_date, :number_of_dogs, :trip_time_in_minutes, :notes)
     end
 end

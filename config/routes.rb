@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   post "/signup", to: "clients#create"
   get "/my-profile", to: "clients#show"
   get "/my-dogs", to: "dogs#index"
+  post "/posts", to: "posts#create"
   get "/posts", to: "posts#index"
 end

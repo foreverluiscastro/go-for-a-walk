@@ -2,12 +2,15 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
 import { Button, Error, FormField, Input, Label, Textarea } from '../styles';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import TimePicker from 'react-time-picker';
 
 function NewPost() {
     const [numberOfDogs, setNumberOfDogs] = useState("How many dogs will attend this trip?");
-    const [time, setTime] = useState("How long should they be active?")
-    const [notes, setNotes] = useState("Would you like your walker to know anything about your pet prior to meeting up?")
-
+    const [time, setTime] = useState('10:00');
+    const [notes, setNotes] = useState("Would you like your walker to know anything about your pet prior to meeting up?");
+    const [date, setDate] = useState(new Date());
     const [errors, setErrors] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const history = useHistory();
@@ -21,7 +24,10 @@ function NewPost() {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-
+                date,
+                time,
+                numberOfDogs,
+                notes
             }),
         }).then((r) => {
             setIsLoading(false);
@@ -40,6 +46,14 @@ function NewPost() {
                 <h2>Make A Post!</h2>
                 <form onSubmit={handleSubmit}>
                     <FormField>
+                        <Label>Appointment date</Label>
+                        <DatePicker selected={date} onChange={date => setDate(date)}/>
+                    </FormField>
+                    <FormField>
+                        <Label>Pick-up Time</Label>
+                        <TimePicker onChange={setTime} value={time}/>
+                    </FormField>
+                    <FormField>
                         <Label htmlFor="numberOfDogs">Number of Dogs</Label>
                         <Input
                         type="integer"
@@ -49,7 +63,7 @@ function NewPost() {
                         onClick={() => setNumberOfDogs("")}
                         />
                     </FormField>
-                    <FormField>
+                    {/* <FormField>
                         <Label htmlFor="time">Trip Time in Minutes</Label>
                         <Input
                         type="integer"
@@ -58,10 +72,10 @@ function NewPost() {
                         onChange={(e) => setTime(e.target.value)}
                         onClick={() => setTime("")}
                         />
-                    </FormField>
+                    </FormField> */}
                     <FormField>
                         <Label htmlFor="notes">Any Sidenotes or concerns?</Label>
-                        <Input
+                        <Textarea
                         type="text"
                         id="notes"
                         value={notes}
