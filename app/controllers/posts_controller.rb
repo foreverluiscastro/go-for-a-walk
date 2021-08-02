@@ -21,7 +21,7 @@ class PostsController < ApplicationController
             render json: posts, include: :client
         elsif session[:client_id]
             client = Client.find(session[:client_id])
-            post = client.post
+            post = client.posts
             render json: post, include: :client
         else
             render json: { error: [ "Not Authorized" ] }, status: :unauthorized
@@ -68,6 +68,6 @@ class PostsController < ApplicationController
     private
 
     def post_params
-        params.permit(:client_id, :appointment_date, :number_of_dogs, :trip_time_in_minutes, :notes)
+        params.permit(:client_id, :date, :time, :trip_time_in_minutes, :number_of_dogs, :notes)
     end
 end

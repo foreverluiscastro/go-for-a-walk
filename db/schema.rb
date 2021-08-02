@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2021_07_25_152135) do
     t.bigint "walker_id", null: false
     t.date "date"
     t.time "time"
+    t.integer "trip_time_in_minutes"
     t.integer "number_of_dogs"
     t.string "notes"
     t.datetime "created_at", precision: 6, null: false
@@ -56,6 +57,7 @@ ActiveRecord::Schema.define(version: 2021_07_25_152135) do
     t.bigint "client_id", null: false
     t.date "date"
     t.time "time"
+    t.integer "trip_time_in_minutes"
     t.integer "number_of_dogs"
     t.string "notes"
     t.datetime "created_at", precision: 6, null: false

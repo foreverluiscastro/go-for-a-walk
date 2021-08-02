@@ -7,10 +7,11 @@ import "react-datepicker/dist/react-datepicker.css";
 import TimePicker from 'react-time-picker';
 
 function NewPost() {
-    const [numberOfDogs, setNumberOfDogs] = useState("How many dogs will attend this trip?");
+    const [number_of_dogs, setNumberOfDogs] = useState("How many dogs will attend this trip?");
     const [time, setTime] = useState('10:00');
     const [notes, setNotes] = useState("Would you like your walker to know anything about your pet prior to meeting up?");
     const [date, setDate] = useState(new Date());
+    const [trip_time_in_minutes, setTripTimeInMinutes] = useState("How long should your pet(s) be active for?")
     const [errors, setErrors] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const history = useHistory();
@@ -26,7 +27,8 @@ function NewPost() {
             body: JSON.stringify({
                 date,
                 time,
-                numberOfDogs,
+                trip_time_in_minutes,
+                number_of_dogs,
                 notes
             }),
         }).then((r) => {
@@ -58,21 +60,21 @@ function NewPost() {
                         <Input
                         type="integer"
                         id="numberOfDogs"
-                        value={numberOfDogs}
+                        value={number_of_dogs}
                         onChange={(e) => setNumberOfDogs(e.target.value)}
                         onClick={() => setNumberOfDogs("")}
                         />
                     </FormField>
-                    {/* <FormField>
+                    <FormField>
                         <Label htmlFor="time">Trip Time in Minutes</Label>
                         <Input
                         type="integer"
                         id="time"
-                        value={time}
-                        onChange={(e) => setTime(e.target.value)}
-                        onClick={() => setTime("")}
+                        value={trip_time_in_minutes}
+                        onChange={(e) => setTripTimeInMinutes(e.target.value)}
+                        onClick={() => setTripTimeInMinutes("")}
                         />
-                    </FormField> */}
+                    </FormField>
                     <FormField>
                         <Label htmlFor="notes">Any Sidenotes or concerns?</Label>
                         <Textarea

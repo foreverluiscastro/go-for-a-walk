@@ -6,7 +6,7 @@ class ClientsController < ApplicationController
             session[:client_id] = client.id
             render json: client, status: :created
         else
-            render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
+            render json: { errors: client.errors.full_messages }, status: :unprocessable_entity
         end
     end
 

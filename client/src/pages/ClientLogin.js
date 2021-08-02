@@ -41,7 +41,7 @@ function ClientLogin({ onLogin }) {
 }
 
 const Logo = styled.h1`
-  font-family: "Permanent Marker", cursive;
+  font-family: "Fredoka One";
   font-size: 3rem;
   color: #00e0d7;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;

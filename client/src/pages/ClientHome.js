@@ -18,7 +18,7 @@ function ClientHome({ user }) {
             <Box>
                 <h1>Hello, {user.username}.</h1>
                 {console.log(user)}
-                {!!post ? (
+                {post.length > 0 ? (
                     post.map((post) => (
                         <PostLink key={post.id} post={post}/>
                     ))
