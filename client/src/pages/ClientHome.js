@@ -10,14 +10,13 @@ function ClientHome({ user }) {
     useEffect(() => {
         fetch("/posts")
         .then((r) => r.json())
-        .then(setPost);
+        .then(setPost)
     }, []);
 
     return (
         <Wrapper>
             <Box>
                 <h1>Hello, {user.username}.</h1>
-                {console.log(user)}
                 {post.length > 0 ? (
                     <>
                     <h1>You have {post.length} post pending walker.</h1>

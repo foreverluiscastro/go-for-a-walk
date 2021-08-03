@@ -28,7 +28,7 @@ class PostsController < ApplicationController
         end
     end
 
-    # GET /job-postings/:id
+    # GET /posts/:id
     def show
         if session[:walker_id]
             post = Post.find(params[:id])
@@ -37,8 +37,32 @@ class PostsController < ApplicationController
             else
                 render json: { errors: [ "Could not complete request. please try again" ] }, status: :unprocessable_entity
             end
+        elsif session[:client_id]
+            client = Client.find(session[:client_id])
+            post = client.posts.find(params[:id])
+            if post.valid?
+                render json: post, include: :client
+            else
+                render json: { errors: [ "Not Authorized" ]}, status: :unauthorized
+            end
         else
             render json: { errors: [ "Not Authorized" ] }, status: :unauthorized
+        end
+    end
+
+    # PATCH /posts/:id
+    def update
+        if session[:client_id]
+            client = Client.find_by(id: session[:client_id])
+            post = client.posts.find(params[:id])
+            if post.valid?
+                post.update(post_params)
+                render json: post, include: :client
+            else
+                render json: { errors: ["Unprocessable Entity"]}, status: :unprocessable_entity
+            end
+        else
+            render json: { errors: [ "Not Authorized" ]}, status: :unauthorized
         end
     end
 

@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Box, Button } from '../styles';
 import { useHistory } from 'react-router';
+import { Link } from 'react-router-dom';
 
 function ClientPost({ post }) {
     const history = useHistory();
@@ -26,7 +27,7 @@ function ClientPost({ post }) {
             },
         })
         .then(() => {
-            history.push("/client-app")
+            history.push("/client-app/home")
         })
     }
 
@@ -35,7 +36,11 @@ function ClientPost({ post }) {
             <Box>
                 <h1>{post.number_of_dogs} dog(s) for {post.trip_time_in_minutes} minutes</h1>
                 <h2>At: {convertTime(postTime)}</h2>
-                <h3>On: {post.date}</h3>
+                <h2>On: {post.date}</h2>
+                <h3><i>"{post.notes}"</i></h3>
+                <Button as={Link} to={`/client-app/posts/${post.id}/edit`}>
+                    Edit Post
+                </Button>
                 <Button onClick={() => deletePost(post.id)}>
                     Cancel Post
                 </Button>

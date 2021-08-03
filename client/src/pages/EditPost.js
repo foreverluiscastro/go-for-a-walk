@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
 import { Button, Error, FormField, Input, Label, Textarea } from '../styles';
@@ -6,15 +6,22 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import TimePicker from 'react-time-picker';
 
-function NewPost() {
-    const [number_of_dogs, setNumberOfDogs] = useState("How many dogs will attend this trip?");
+function EditPost(props) {
+    // const [number_of_dogs, setNumberOfDogs] = useState("How many dogs will attend this trip?");
     const [time, setTime] = useState('10:00');
-    const [notes, setNotes] = useState("Would you like your walker to know anything about your pet prior to meeting up?");
+    // const [notes, setNotes] = useState("Would you like your walker to know anything about your pet prior to meeting up?");
     const [date, setDate] = useState(new Date());
-    const [trip_time_in_minutes, setTripTimeInMinutes] = useState("How long should your pet(s) be active for?")
+    // const [trip_time_in_minutes, setTripTimeInMinutes] = useState("How long should your pet(s) be active for?")
     const [errors, setErrors] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const history = useHistory();
+    const [post, setPost] = useState([]);
+
+    useEffect(() => {
+        fetch(`/posts/${props.match.params.id}`)
+        .then((r) => r.json())
+        .then(setPost);
+    }, [props.match.params.id])
     
     function handleSubmit(e) {
         e.preventDefault();
@@ -25,11 +32,11 @@ function NewPost() {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                date,
-                time,
-                trip_time_in_minutes,
-                number_of_dogs,
-                notes
+                date: post.date,
+                time: post.time,
+                trip_time_in_minutes: post.trip_time_in_minutes,
+                number_of_dogs: post.number_of_dogs,
+                notes: post.notes
             }),
         }).then((r) => {
             setIsLoading(false);
@@ -60,9 +67,9 @@ function NewPost() {
                         <Input
                         type="integer"
                         id="numberOfDogs"
-                        value={number_of_dogs}
-                        onChange={(e) => setNumberOfDogs(e.target.value)}
-                        onClick={() => setNumberOfDogs("")}
+                        value={post.number_of_dogs}
+                        onChange={(e) => setPost({ number_of_dogs: e.target.value})}
+                        onClick={() => setPost({ number_of_dogs: ""})}
                         />
                     </FormField>
                     <FormField>
@@ -70,9 +77,9 @@ function NewPost() {
                         <Input
                         type="integer"
                         id="time"
-                        value={trip_time_in_minutes}
-                        onChange={(e) => setTripTimeInMinutes(e.target.value)}
-                        onClick={() => setTripTimeInMinutes("")}
+                        value={post.trip_time_in_minutes}
+                        onChange={(e) => setPost({ trip_time_in_minutes: e.target.value})}
+                        onClick={() => setPost({ trip_time_in_minutes: ""})}
                         />
                     </FormField>
                     <FormField>
@@ -80,9 +87,9 @@ function NewPost() {
                         <Textarea
                         type="text"
                         id="notes"
-                        value={notes}
-                        onChange={(e) => setNotes(e.target.value)}
-                        onClick={() => setNotes("")}
+                        value={post.notes}
+                        onChange={(e) => setPost({ notes: e.target.value})}
+                        onClick={() => setPost({ notes: ""})}
                         />
                     </FormField>
                     <FormField>
@@ -116,4 +123,4 @@ const WrapperChild = styled.div`
   flex: 1;
 `;
 
-export default NewPost;
+export default EditPost;

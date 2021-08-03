@@ -19,7 +19,7 @@ function ClientNavBar({ user, setUser }) {
     return (
         <Wrapper>
             <Logo>
-                <Link to="/client-app">Go For A Walk</Link>
+                <Link to="/client-app/home">Go For A Walk</Link>
             </Logo>
             <Nav>
                 <Button as={Link} to="/client-app/my-dogs">
