@@ -42,7 +42,7 @@ class PostsController < ApplicationController
         end
     end
 
-    # DELETE /job-postings/:id
+    # DELETE /posts/:id
     def destroy
         if session[:walker_id]
             post = Post.find_by(id: params[:id])
