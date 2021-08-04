@@ -7,11 +7,11 @@ import "react-datepicker/dist/react-datepicker.css";
 import TimePicker from 'react-time-picker';
 
 function NewPost() {
-    const [number_of_dogs, setNumberOfDogs] = useState("How many dogs will attend this trip?");
+    const [number_of_dogs, setNumberOfDogs] = useState();
     const [time, setTime] = useState('10:00');
-    const [notes, setNotes] = useState("Would you like your walker to know anything about your pet prior to meeting up?");
+    const [notes, setNotes] = useState();
     const [date, setDate] = useState(new Date());
-    const [trip_time_in_minutes, setTripTimeInMinutes] = useState("How long should your pet(s) be active for?")
+    const [trip_time_in_minutes, setTripTimeInMinutes] = useState();
     const [errors, setErrors] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const history = useHistory();
@@ -60,9 +60,9 @@ function NewPost() {
                         <Input
                         type="integer"
                         id="numberOfDogs"
+                        placeholder="How many dogs will attend this trip?"
                         value={number_of_dogs}
                         onChange={(e) => setNumberOfDogs(e.target.value)}
-                        onClick={() => setNumberOfDogs("")}
                         />
                     </FormField>
                     <FormField>
@@ -70,9 +70,9 @@ function NewPost() {
                         <Input
                         type="integer"
                         id="time"
+                        placeholder="How long should your pet(s) be active for?"
                         value={trip_time_in_minutes}
                         onChange={(e) => setTripTimeInMinutes(e.target.value)}
-                        onClick={() => setTripTimeInMinutes("")}
                         />
                     </FormField>
                     <FormField>
@@ -80,9 +80,9 @@ function NewPost() {
                         <Textarea
                         type="text"
                         id="notes"
+                        placeholder="Would you like your walker to know anything about your pet prior to meeting up?"
                         value={notes}
                         onChange={(e) => setNotes(e.target.value)}
-                        onClick={() => setNotes("")}
                         />
                     </FormField>
                     <FormField>

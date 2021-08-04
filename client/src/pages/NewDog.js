@@ -4,13 +4,13 @@ import { useHistory } from 'react-router-dom';
 import { Button, Error, FormField, Input, Label } from '../styles';
 
 function NewDog() {
-    const [name, setName] = useState("What's your dog's name?");
-    const [img_url, setImgUrl] = useState("Add an Image Link for your dog.");
-    const [age, setAge] = useState("How old is your dog?");
-    const [sex, setSex] = useState("What sex is the dog?");
-    const [breed, setBreed] = useState("What breed or mix is your dog?");
-    const [temperment, setTemperment] = useState("How would you describe your dog's overall temperment?");
-    const [personality, setPersonality] = useState("How would you best describe your dog to a stranger?");
+    const [name, setName] = useState();
+    const [img_url, setImgUrl] = useState();
+    const [age, setAge] = useState();
+    const [sex, setSex] = useState();
+    const [breed, setBreed] = useState();
+    const [temperment, setTemperment] = useState();
+    const [personality, setPersonality] = useState();
     const [errors, setErrors] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const history = useHistory();
@@ -51,9 +51,9 @@ function NewDog() {
                         <Input
                         type="text"
                         id="name"
+                        placeholder="What's your dog's name?"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
-                        onClick={() => setName("")}
                         />
                     </FormField>
                     <FormField>
@@ -61,9 +61,9 @@ function NewDog() {
                         <Input
                         type="text"
                         id="imgUrl"
+                        placeholder="Add an Image Link for your dog."
                         value={img_url}
                         onChange={(e) => setImgUrl(e.target.value)}
-                        onClick={() => setImgUrl("")}
                         />
                     </FormField>
                     <FormField>
@@ -71,9 +71,9 @@ function NewDog() {
                         <Input
                         type="integer"
                         id="age"
+                        placeholder="How old is your dog?"
                         value={age}
                         onChange={(e) => setAge(e.target.value)}
-                        onClick={() => setAge("")}
                         />
                     </FormField>
                     <FormField>
@@ -81,9 +81,9 @@ function NewDog() {
                         <Input
                         type="text"
                         id="sex"
+                        placeholder="What sex is the dog?"
                         value={sex}
                         onChange={(e) => setSex(e.target.value)}
-                        onClick={() => setSex("")}
                         />
                     </FormField>
                     <FormField>
@@ -91,9 +91,9 @@ function NewDog() {
                         <Input 
                         type="text"
                         id="breed"
+                        placeholder="What breed or mix is your dog?"
                         value={breed}
                         onChange={(e) => setBreed(e.target.value)}
-                        onClick={() => setBreed("")}
                         />
                     </FormField>
                     <FormField>
@@ -101,9 +101,9 @@ function NewDog() {
                         <Input
                         type="text"
                         id="temperment"
+                        placeholder="How would you describe your dog's overall temperment?"
                         value={temperment}
                         onChange={(e) => setTemperment(e.target.value)}
-                        onClick={() => setTemperment("")}
                         />
                     </FormField>
                     <FormField>
@@ -111,9 +111,9 @@ function NewDog() {
                         <Input
                         type="text"
                         id="personality"
+                        placeholder="How would you best describe your dog to a stranger?"
                         value={personality}
                         onChange={(e) => setPersonality(e.target.value)}
-                        onClick={() => setPersonality("")}
                         />
                     </FormField>
                     <FormField>
