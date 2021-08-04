@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components';
 import { Box, Button } from '../styles';
 import { Link } from 'react-router-dom';
-import ClientPost from '../components/ClientPost';
+import PostLink from '../components/PostLink';
 
 function ClientHome({ user }) {
     const [post, setPost] = useState([]);
@@ -21,7 +21,7 @@ function ClientHome({ user }) {
                     <>
                     <h1>You have {post.length} post pending walker.</h1>
                     {post.map((post) => (
-                        <ClientPost key={post.id} post={post}/>
+                        <PostLink key={post.id} post={post}/>
                     ))}
                     </>
                 ) : (

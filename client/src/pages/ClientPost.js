@@ -1,23 +1,17 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react'
+import { useHistory } from 'react-router';
 import styled from 'styled-components';
 import { Box, Button } from '../styles';
-import { useHistory } from 'react-router';
-import { Link } from 'react-router-dom';
 
-function ClientPost({ post }) {
+function ClientPost(props) {
+    const [post, setPost] = useState([]);
     const history = useHistory();
-    
-    const postTime = post.time;
 
-    function convertTime(postTime) {
-        const time = postTime.split("T")[1].split(".")[0].split(":").slice(0, -1)
-        if (time.length > 1) {
-            time[2] = time[0] < 12 ? "AM" : "PM" ;
-            time[0] = time[0] > 12 ? time[0] -12 : time[0];
-            time.splice(1, 0, ":")
-        }
-        return time.join("")
-    }
+    useEffect(() => {
+        fetch(`/posts/${props.match.params.id}`)
+        .then((r) => r.json())
+        .then(setPost);
+    }, [props.match.params.id]);
 
     const deletePost = (id) => {
         fetch(`/posts/${post.id}`, {
@@ -27,7 +21,7 @@ function ClientPost({ post }) {
             },
         })
         .then(() => {
-            history.push("/client-app/home")
+            history.push("/client-app")
         })
     }
 
@@ -35,15 +29,15 @@ function ClientPost({ post }) {
         <Wrapper>
             <Box>
                 <h1>{post.number_of_dogs} dog(s) for {post.trip_time_in_minutes} minutes</h1>
-                <h2>At: {convertTime(postTime)}</h2>
+                <h2>At: {post.time}</h2>
                 <h2>On: {post.date}</h2>
                 <h3><i>"{post.notes}"</i></h3>
-                <Button as={Link} to={`/client-app/posts/${post.id}/edit`}>
+                {/* <Button as={Link} to={`/client-app/posts/${post.id}/edit`}>
                     Edit Post
                 </Button>
                 <Button onClick={() => deletePost(post.id)}>
                     Cancel Post
-                </Button>
+                </Button> */}
             </Box>
         </Wrapper>
     )
