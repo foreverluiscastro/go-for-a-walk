@@ -19,7 +19,7 @@ function ClientNavBar({ user, setUser }) {
     return (
         <Wrapper>
             <Logo>
-                <Link to="/client-app/home">Go For A Walk</Link>
+                <Link to="/client-app">Go For A Walk</Link>
             </Logo>
             <Nav>
                 <Button as={Link} to="/client-app/my-dogs">
@@ -47,7 +47,7 @@ const Logo = styled.h1`
   font-family: "Fredoka One";
   font-size: 4rem;
   color: #00e0d7;
-  text-shadow: -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
   margin: 0;
   line-height: 1;
 

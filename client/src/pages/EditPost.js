@@ -26,10 +26,11 @@ function EditPost(props) {
     function handleSubmit(e) {
         e.preventDefault();
         setIsLoading(true);
-        fetch("/posts", {
-            method: "POST",
+        fetch(`/posts/${props.match.params.id}`, {
+            method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
+                "Accept": "application/json"
             },
             body: JSON.stringify({
                 date: post.date,
@@ -41,7 +42,7 @@ function EditPost(props) {
         }).then((r) => {
             setIsLoading(false);
             if (r.ok) {
-                history.push("/client-app/home");
+                history.push("/client-app");
             } else {
                 r.json().then((err) => setErrors(err.errors));
             }
@@ -69,7 +70,6 @@ function EditPost(props) {
                         id="numberOfDogs"
                         value={post.number_of_dogs}
                         onChange={(e) => setPost({ number_of_dogs: e.target.value})}
-                        onClick={() => setPost({ number_of_dogs: ""})}
                         />
                     </FormField>
                     <FormField>
@@ -79,7 +79,6 @@ function EditPost(props) {
                         id="time"
                         value={post.trip_time_in_minutes}
                         onChange={(e) => setPost({ trip_time_in_minutes: e.target.value})}
-                        onClick={() => setPost({ trip_time_in_minutes: ""})}
                         />
                     </FormField>
                     <FormField>
@@ -89,7 +88,6 @@ function EditPost(props) {
                         id="notes"
                         value={post.notes}
                         onChange={(e) => setPost({ notes: e.target.value})}
-                        onClick={() => setPost({ notes: ""})}
                         />
                     </FormField>
                     <FormField>
