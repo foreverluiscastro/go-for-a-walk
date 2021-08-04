@@ -34,7 +34,7 @@ function NewPost() {
         }).then((r) => {
             setIsLoading(false);
             if (r.ok) {
-                history.push("/client-app/home");
+                history.push("/client-app");
             } else {
                 r.json().then((err) => setErrors(err.errors));
             }
