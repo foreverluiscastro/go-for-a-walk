@@ -25,6 +25,7 @@ function NewDog() {
             },
             body: JSON.stringify({
                 name,
+                img_url,
                 age,
                 sex,
                 breed,
@@ -127,6 +128,19 @@ function NewDog() {
                                 ))}
                     </FormField>
                 </form>
+            </WrapperChild>
+            <WrapperChild>
+                <h1>Name: {name}</h1>
+                <img src={img_url} alt=""/>
+                <p>
+                    <em><b>Age:</b> {age}</em>
+                    &nbsp;·&nbsp;
+                    <em><b>Sex:</b> {sex}</em>
+                    &nbsp;·&nbsp;
+                    <em><b>Breed:</b> {breed}</em>
+                </p>
+                <p><b>Temperment:</b> {temperment}</p>
+                <p><b>Personality:</b> {personality}</p>
             </WrapperChild>
         </Wrapper>
     )

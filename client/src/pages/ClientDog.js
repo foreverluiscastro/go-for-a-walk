@@ -30,6 +30,10 @@ function ClientDog(props) {
         <Wrapper>
             <Box>
                 <h1>{dog.name}</h1>
+                <p>
+                    {console.log(dog)}
+                    <img src={dog.img_url} alt=""/>
+                </p>
                 <Button onClick={() => deleteDog(dog.id)}>
                     Remove Dog
                 </Button>

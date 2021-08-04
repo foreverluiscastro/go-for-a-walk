@@ -7,7 +7,7 @@ class DogsController < ApplicationController
             if dog.valid?
                 render json: dog, include: :client, status: :created
             else
-                render json: { errors: [ "Name is a required field." ] }, status: :unprocessable_entity
+                render json: { errors: [ dog.errors.full_messages ] }, status: :unprocessable_entity
             end
         else
             render json: { errors: [ "Not Authorized" ] }, status: :unauthorized

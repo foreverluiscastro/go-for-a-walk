@@ -4,3 +4,8 @@
   height: auto;
   display: block;
 }
+
+.thumbnail {
+  height: 110px;
+  width: 110px;
+}
