@@ -9,6 +9,7 @@ import ClientDogs from '../pages/ClientDogs';
 import EditPost from '../pages/EditPost';
 import ClientPost from '../pages/ClientPost';
 import NewDog from '../pages/NewDog';
+import ClientDog from '../pages/ClientDog';
 
 
 function ClientApp() {
@@ -47,6 +48,7 @@ function ClientApp() {
                 </Route>
                 <Route path="/client-app/posts/:id/edit" component={EditPost}/>
                 <Route path="/client-app/posts/:id" component={ClientPost}/>
+                <Route path="/client-app/dogs/:id" component={ClientDog}/>
             </Switch>
         </main>
         </>

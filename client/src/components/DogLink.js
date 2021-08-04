@@ -7,7 +7,7 @@ function DogLink({ dog }) {
     return (
         <Wrapper>
             <Box>
-                <Link to={`/client-app/my-dogs/${dog.id}`}>
+                <Link to={`/client-app/dogs/${dog.id}`}>
                     <h1>{dog.name}</h1>
                 </Link>
             </Box>

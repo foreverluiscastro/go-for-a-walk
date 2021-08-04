@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get "/my-profile", to: "clients#show"
   get "/dogs", to: "dogs#index"
   post "/dogs", to: "dogs#create"
+  get "/dogs/:id", to: "dogs#show"
+  delete "/dogs/:id", to: "dogs#destroy"
   post "/posts", to: "posts#create"
   get "/posts", to: "posts#index"
   get "/posts/:id", to: "posts#show"
