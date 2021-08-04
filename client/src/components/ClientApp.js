@@ -8,6 +8,7 @@ import ClientProfile from '../pages/ClientProfile';
 import ClientDogs from '../pages/ClientDogs';
 import EditPost from '../pages/EditPost';
 import ClientPost from '../pages/ClientPost';
+import NewDog from '../pages/NewDog';
 
 
 function ClientApp() {
@@ -31,6 +32,9 @@ function ClientApp() {
             <Switch>
                 <Route exact path="/client-app">
                     <ClientHome user={user}/>
+                </Route>
+                <Route exact path="/client-app/new-dog">
+                    <NewDog user={user} />
                 </Route>
                 <Route exact path="/client-app/my-dogs">
                     <ClientDogs user={user}/>

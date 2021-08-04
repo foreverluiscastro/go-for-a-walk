@@ -8,7 +8,7 @@ function ClientDogs({ user }) {
     const [dogs, setDogs] = useState([]);
 
     useEffect(() => {
-        fetch("/my-dogs")
+        fetch("/dogs")
         .then((r) => r.json())
         .then(setDogs);
     }, [])
@@ -18,12 +18,12 @@ function ClientDogs({ user }) {
             <Box>
                 {dogs.length > 0 ? (
                     dogs.map((dog) => (
-                        <DogLink />
+                        <DogLink key={dog.id} dog={dog}/>
                     ))
                 ) : (
                     <>
                     <h2>You have not added a dog yet! Adding your dog allows your walker the opportunity to get to know your pet.</h2>
-                    <Button as={Link} to="/Client-app/new-dog">
+                    <Button as={Link} to="/client-app/new-dog">
                         Add Your Dog!
                     </Button>
                     </>

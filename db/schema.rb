@@ -43,9 +43,12 @@ ActiveRecord::Schema.define(version: 2021_07_25_152135) do
   end
 
   create_table "dogs", force: :cascade do |t|
-    t.string "img_url"
     t.string "name"
+    t.string "img_url"
+    t.integer "age"
+    t.string "sex"
     t.string "breed"
+    t.string "temperment"
     t.string "personality"
     t.bigint "client_id", null: false
     t.datetime "created_at", precision: 6, null: false
