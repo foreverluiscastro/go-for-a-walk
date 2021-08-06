@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
   get "/session", to: "sessions#show"
   post "/signup", to: "clients#create"
+  post "/signup-to-walk", to: "walkers#create"
+  get "/walker", to: "walker#show"
   get "/client", to: "clients#show"
   patch "/client", to: "clients#update"
   get "/dogs", to: "dogs#index"

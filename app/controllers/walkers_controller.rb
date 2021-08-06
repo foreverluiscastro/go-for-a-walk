@@ -6,7 +6,7 @@ class WalkersController < ApplicationController
             session[:walker_id] = walker.id
             render json: walker, status: :created
         else
-            render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
+            render json: { errors: walker.errors.full_messages }, status: :unprocessable_entity
         end
     end
 
@@ -23,6 +23,6 @@ class WalkersController < ApplicationController
     private
 
     def walker_params
-        params.permit(:username, :password, :password_confirmation, :image_url, :bio, :location)
+        params.permit(:username, :password, :password_confirmation, :first_name, :last_name, :age, :image_url, :bio, :city, :state)
     end
 end

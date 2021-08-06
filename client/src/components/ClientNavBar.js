@@ -2,7 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { Button } from '../styles'
+import { Button } from '../styles';
 
 function ClientNavBar({ user, setUser }) {
     const history = useHistory();
