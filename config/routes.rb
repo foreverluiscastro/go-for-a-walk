@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   get "/posts/:id", to: "posts#show"
   patch "/posts/:id", to: "posts#update"
   delete "/posts/:id", to: "posts#destroy"
+  get "/appointments", to: "appointments#index"
 end

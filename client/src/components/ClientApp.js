@@ -11,6 +11,7 @@ import ClientPost from '../pages/ClientPost';
 import NewDog from '../pages/NewDog';
 import ClientDog from '../pages/ClientDog';
 import EditProfile from '../pages/EditProfile';
+import ClientAppointments from '../pages/ClientAppointments';
 
 
 function ClientApp() {
@@ -40,6 +41,9 @@ function ClientApp() {
                 </Route>
                 <Route exact path="/client-app/my-dogs">
                     <ClientDogs user={user}/>
+                </Route>
+                <Route exact path="/client-app/my-appointments">
+                    <ClientAppointments user={user}/>
                 </Route>
                 <Route exact path="/client-app/new-post">
                     <NewPost user={user} />

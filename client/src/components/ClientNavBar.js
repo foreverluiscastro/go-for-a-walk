@@ -28,6 +28,9 @@ function ClientNavBar({ user, setUser }) {
                 <Button as={Link} to="/client-app/my-profile">
                     My Profile
                 </Button>
+                <Button as={Link} to="/client-app/my-appointments">
+                    My Appointments
+                </Button>
                 <Button variant="outline" onClick={handleLogoutClick}>
                     Logout
                 </Button>
