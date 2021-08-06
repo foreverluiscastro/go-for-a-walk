@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router';
 import styled from 'styled-components';
 import { Box, Button } from '../styles';
-import { Link } from 'react-router-dom';
+import '../App.css';
 
 function ClientDog(props) {
     const [dog, setDog] = useState([]);
@@ -31,9 +31,16 @@ function ClientDog(props) {
             <Box>
                 <h1>{dog.name}</h1>
                 <p>
-                    {console.log(dog)}
-                    <img src={dog.img_url} alt=""/>
+                    <img src={dog.img_url} alt="" className="dog-picture"/>
+                    <br/>
+                    <em><b>Age:</b> {dog.age}</em>
+                    &nbsp;·&nbsp;
+                    <em><b>Sex:</b> {dog.sex}</em>
+                    &nbsp;·&nbsp;
+                    <em><b>Breed:</b> {dog.breed}</em>
                 </p>
+                <p><b>Temperment: </b>{dog.temperment}</p>
+                <p><b>Personality: </b>{dog.personality}</p>
                 <Button onClick={() => deleteDog(dog.id)}>
                     Remove Dog
                 </Button>
