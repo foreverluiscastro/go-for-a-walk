@@ -5,8 +5,13 @@ function ClientSignUpForm({ onLogin }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [age, setAge] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [bio, setBio] = useState("");
+  const [city, setCity] = useState("");
+  const [state, setState] = useState("");
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -23,7 +28,12 @@ function ClientSignUpForm({ onLogin }) {
         username,
         password,
         password_confirmation: passwordConfirmation,
+        first_name: firstName,
+        last_name: lastName,
         image_url: imageUrl,
+        age,
+        city,
+        state,
         bio,
       }),
     }).then((r) => {
@@ -78,12 +88,57 @@ function ClientSignUpForm({ onLogin }) {
         />
       </FormField>
       <FormField>
+        <Label htmlFor="firstName">First Name</Label>
+        <Input
+          type="text"
+          id="firstName"
+          value={firstName}
+          onChange={(e) => setFirstName(e.target.value)}
+        />
+      </FormField>
+      <FormField>
+        <Label htmlFor="lastName">Last Name</Label>
+        <Input
+          type="text"
+          id="lastName"
+          value={lastName}
+          onChange={(e) => setLastName(e.target.value)}
+        />
+      </FormField>
+      <FormField>
+        <Label htmlFor="age">Age</Label>
+        <Input
+          type="integer"
+          id="age"
+          value={age}
+          onChange={(e) => setAge(e.target.value)}
+        />
+      </FormField>
+      <FormField>
         <Label htmlFor="bio">Bio</Label>
         <Textarea
           rows="3"
           id="bio"
           value={bio}
           onChange={(e) => setBio(e.target.value)}
+        />
+      </FormField>
+      <FormField>
+        <Label htmlFor="city">City</Label>
+        <Input
+          type="text"
+          id="city"
+          value={city}
+          onChange={(e) => setCity(e.target.value)}
+        />
+      </FormField>
+      <FormField>
+        <Label htmlFor="state">State</Label>
+        <Input
+          type="text"
+          id="state"
+          value={state}
+          onChange={(e) => setState(e.target.value)}
         />
       </FormField>
       <FormField>
@@ -95,6 +150,7 @@ function ClientSignUpForm({ onLogin }) {
         ))}
       </FormField>
     </form>
+
   );
 }
 

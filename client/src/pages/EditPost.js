@@ -53,7 +53,7 @@ function EditPost(props) {
     return (
         <Wrapper>
             <WrapperChild>
-                <h2>Make A Post!</h2>
+                <h2>Edit Your Post!</h2>
                 <form onSubmit={handleSubmit}>
                     <FormField>
                         <Label>Appointment date</Label>

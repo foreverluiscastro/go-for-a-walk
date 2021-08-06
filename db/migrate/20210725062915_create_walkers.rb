@@ -6,6 +6,7 @@ class CreateWalkers < ActiveRecord::Migration[6.1]
       t.string :image_url
       t.string :first_name
       t.string :last_name
+      t.integer :age
       t.string :bio
       t.string :city
       t.string :state

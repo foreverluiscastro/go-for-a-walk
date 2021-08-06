@@ -10,6 +10,7 @@ import EditPost from '../pages/EditPost';
 import ClientPost from '../pages/ClientPost';
 import NewDog from '../pages/NewDog';
 import ClientDog from '../pages/ClientDog';
+import EditProfile from '../pages/EditProfile';
 
 
 function ClientApp() {
@@ -40,12 +41,13 @@ function ClientApp() {
                 <Route exact path="/client-app/my-dogs">
                     <ClientDogs user={user}/>
                 </Route>
-                <Route path="/client-app/new-post">
+                <Route exact path="/client-app/new-post">
                     <NewPost user={user} />
                 </Route>
-                <Route path="/client-app/my-profile">
+                <Route exact path="/client-app/my-profile">
                     <ClientProfile user={user} />
                 </Route>
+                <Route exact path="/client-app/my-profile/edit" component={EditProfile}/>
                 <Route path="/client-app/posts/:id/edit" component={EditPost}/>
                 <Route path="/client-app/posts/:id" component={ClientPost}/>
                 <Route path="/client-app/dogs/:id" component={ClientDog}/>
