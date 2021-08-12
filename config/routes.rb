@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   post "/signup", to: "clients#create"
   post "/signup-to-walk", to: "walkers#create"
   get "/walker", to: "walkers#show"
+  patch "/walker", to: "walkers#update"
   get "/client", to: "clients#show"
   patch "/client", to: "clients#update"
   get "/dogs", to: "dogs#index"

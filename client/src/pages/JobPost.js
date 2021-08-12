@@ -23,7 +23,7 @@ function JobPost(props) {
             },
         })
         .then(() => {
-            history.push("/walker-app/my-appointments")
+            history.push("/walker-app")
         })
     }
 

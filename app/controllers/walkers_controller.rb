@@ -20,6 +20,17 @@ class WalkersController < ApplicationController
         end
     end
 
+    # PATCH /walker
+    def update
+        walker = Walker.find_by(id: session[:walker_id])
+        walker.update(walker_params)
+        if walker.valid?
+            render json: walker
+        else
+            render json: { errors: [ walker.errors.full_messages ] }, status: :unprocessable_entity
+        end
+    end
+
     private
 
     def walker_params

@@ -2,23 +2,27 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { Box, Button } from '../styles';
 import { Link } from 'react-router-dom';
+import ClientAppointmentLink from '../components/ClientAppointmentLink';
 
 function ClientAppointments({ user }) {
-    const [appointment, setAppointment] = useState([]);
+    const [appointments, setAppointments] = useState([]);
 
     useEffect(() => {
         fetch("/appointments")
         .then((r) => r.json())
-        .then(setAppointment)
+        .then(setAppointments)
     }, []);
 
     return (
         <Wrapper>
             <Box>
                 <h1>Hello, {user.username}.</h1>
-                {appointment.length > 0 ? (
+                {appointments.length > 0 ? (
                     <>
-                    <h1>You have {appointment.length} Appointment scheduled for {appointment.date} at {appointment.time}</h1>
+                    <h1>You have {appointments.length} upcoming appointment </h1>
+                    {appointments.map((appointment) => (
+                        <ClientAppointmentLink key={appointment.id} appointment={appointment}/>
+                    ))}
                     </>
                 ) : (
                     <>
