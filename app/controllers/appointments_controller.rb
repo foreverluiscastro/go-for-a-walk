@@ -34,11 +34,11 @@ class AppointmentsController < ApplicationController
         if session[:walker_id]
             walker = Walker.find(session[:walker_id])
             appointment = walker.appointments.find(params[:id])
-            render json: appointment
+            render json: appointment, include: :client
         elsif session[:client_id]
             client = Client.find(session[:client_id])
             appointment = client.appointments.find(params[:id])
-            render json: appointment
+            render json: appointment, include: :walker
         else
             render json: { errors: [ "Not Authorized" ] }, status: :unauthorized
         end

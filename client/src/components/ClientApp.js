@@ -12,6 +12,7 @@ import NewDog from '../pages/NewDog';
 import ClientDog from '../pages/ClientDog';
 import EditProfile from '../pages/EditProfile';
 import ClientAppointments from '../pages/ClientAppointments';
+import ClientAppointmentShow from '../pages/ClientAppointmentShow';
 
 
 function ClientApp() {
@@ -45,6 +46,7 @@ function ClientApp() {
                 <Route exact path="/client-app/my-appointments">
                     <ClientAppointments user={user}/>
                 </Route>
+                <Route path="/client-app/my-appointments/:id" component={ClientAppointmentShow}/>
                 <Route exact path="/client-app/new-post">
                     <NewPost user={user} />
                 </Route>
