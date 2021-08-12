@@ -22,6 +22,9 @@ function WalkerNavBar({ user, setUser }) {
                 <Link to="/walker-app">Go For A Walk</Link>
             </Logo>
             <Nav>
+                <Button as={Link} to="/walker-app/job-posts">
+                    Job Posts
+                </Button>
             <Button as={Link} to="/walker-app/my-profile">
                     My Profile
                 </Button>

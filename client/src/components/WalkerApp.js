@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Switch, Route } from 'react-router-dom';
+import JobPost from '../pages/JobPost';
 import WalkerHome from '../pages/WalkerHome';
 import WalkerLogin from '../pages/WalkerLogin';
+import WalkerPosts from '../pages/WalkerPosts';
 import WalkerNavBar from './WalkerNavBar';
 
 function WalkerApp() {
@@ -26,6 +28,10 @@ function WalkerApp() {
                 <Route exact path="/walker-app">
                     <WalkerHome user={user} />
                 </Route>
+                <Route exact path="/walker-app/job-posts">
+                    <WalkerPosts user={user} />
+                </Route>
+                <Route path="/walker-app/job-posts/:id" component={JobPost}/>
             </Switch>
         </main>
         </>
