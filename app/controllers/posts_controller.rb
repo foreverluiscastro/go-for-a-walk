@@ -32,6 +32,7 @@ class PostsController < ApplicationController
     def show
         if session[:walker_id]
             post = Post.find(params[:id])
+            client = post.client
             if post.valid?
                 render json: post, include: :client
             else

@@ -28,9 +28,6 @@ function WalkerNavBar({ user, setUser }) {
             <Button as={Link} to="/walker-app/my-profile">
                     My Profile
                 </Button>
-                <Button as={Link} to="/walker-app/my-appointments">
-                    My Appointments
-                </Button>
             <Button variant="outline" onClick={handleLogoutClick}>
                     Logout
                 </Button>

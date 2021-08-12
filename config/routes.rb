@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get "/session", to: "sessions#show"
   post "/signup", to: "clients#create"
   post "/signup-to-walk", to: "walkers#create"
-  get "/walker", to: "walker#show"
+  get "/walker", to: "walkers#show"
   get "/client", to: "clients#show"
   patch "/client", to: "clients#update"
   get "/dogs", to: "dogs#index"
@@ -18,4 +18,5 @@ Rails.application.routes.draw do
   patch "/posts/:id", to: "posts#update"
   delete "/posts/:id", to: "posts#destroy"
   get "/appointments", to: "appointments#index"
+  post "/appointments", to: "appointments#create"
 end

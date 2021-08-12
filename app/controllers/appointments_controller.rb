@@ -10,7 +10,7 @@ class AppointmentsController < ApplicationController
             appointments = walker.appointments
             render json: appointments, include: :client
         else
-            render json: { error: [ "Not Authorized" ] }, status: :unauthorized
+            render json: { errors: [ "Not Authorized" ] }, status: :unauthorized
         end
     end
 
@@ -22,10 +22,10 @@ class AppointmentsController < ApplicationController
             if appointment.valid?
                 render json: appointment, include: :walker, status: :created
             else
-                render json: { error: [ "Invalid input. Check the information and try again." ] }, status: :unprocessable_entity
+                render json: { errors: [ "Invalid input. Check the information and try again." ] }, status: :unprocessable_entity
             end
         else
-            render json: { error: [ "Not Authorized" ] }, status: :unauthorized
+            render json: { errors: [ "Not Authorized" ] }, status: :unauthorized
         end
     end
 
