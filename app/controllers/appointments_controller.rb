@@ -29,6 +29,46 @@ class AppointmentsController < ApplicationController
         end
     end
 
+    # GET /appointments/:id
+    def show
+        if session[:walker_id]
+            walker = Walker.find(session[:walker_id])
+            appointment = walker.appointments.find(params[:id])
+            render json: appointment
+        elsif session[:client_id]
+            client = Client.find(session[:client_id])
+            appointment = client.appointments.find(params[:id])
+            render json: appointment
+        else
+            render json: { errors: [ "Not Authorized" ] }, status: :unauthorized
+        end
+    end
+
+    # DELETE /appointments/:id
+    def destroy
+        if session[:walker_id]
+            walker = Walker.find(session[:walker_id])
+            appointment = walker.appointments.find(params[:id])
+            if appointment
+                appointment.delete
+                head :no_content
+            else
+                render json: { error: [ "Could not complete request. Please try again" ] }, status: :unprocessable_entity
+            end
+        elsif session[:client_id]
+            client = Client.find(session[:client_id])
+            appointment = client.appointments.find(params[:id])
+            if appointment
+                appointment.delete
+                head :no_content
+            else
+                render json: { error: [ "Could not complete request. Please try again" ] }, status: :unprocessable_entity
+            end
+        else
+            render json: { error: [ "Not Authorized" ] }, status: :unauthorized
+        end
+    end
+
     private
 
     def appointment_params

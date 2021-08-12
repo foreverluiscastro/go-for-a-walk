@@ -19,4 +19,6 @@ Rails.application.routes.draw do
   delete "/posts/:id", to: "posts#destroy"
   get "/appointments", to: "appointments#index"
   post "/appointments", to: "appointments#create"
+  get "/appointments/:id", to: "appointments#show"
+  delete "/appointments/:id", to: "appointments#destroy"
 end
