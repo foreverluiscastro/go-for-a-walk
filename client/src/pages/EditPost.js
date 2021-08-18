@@ -7,11 +7,8 @@ import "react-datepicker/dist/react-datepicker.css";
 import TimePicker from 'react-time-picker';
 
 function EditPost(props) {
-    // const [number_of_dogs, setNumberOfDogs] = useState("How many dogs will attend this trip?");
     const [time, setTime] = useState('10:00');
-    // const [notes, setNotes] = useState("Would you like your walker to know anything about your pet prior to meeting up?");
     const [date, setDate] = useState(new Date());
-    // const [trip_time_in_minutes, setTripTimeInMinutes] = useState("How long should your pet(s) be active for?")
     const [errors, setErrors] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const history = useHistory();

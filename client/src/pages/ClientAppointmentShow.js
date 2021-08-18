@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router';
 import styled from 'styled-components';
 import { Box, Button } from '../styles';
-import { Link } from 'react-router-dom';
 
 function ClientAppointmentShow(props) {
     const [appointment, setAppointment] = useState([]);
